@@ -6,3 +6,22 @@ helm:
   releaseName: epinio
   valuesFiles:
     - values.yaml
+
+targetCustomizations:
+- name: alpha
+  helm:
+    values:
+      global:
+        domain: alpha.homelab.platformfeverdream.io
+  clusterSelector:
+    matchLabels:
+      name: alpha
+
+- name: beta
+  helm:
+    values:
+      global:
+        domain: beta.homelab.platformfeverdream.io
+  clusterSelector:
+    matchLabels:
+      name: alpha
