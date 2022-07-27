@@ -4,6 +4,7 @@ cluster:
   annotations: {}
   labels: 
     environment: dev
+    cluster_name: beta
 
   #! must be a unique name
   name: rke2-small-dev-beta

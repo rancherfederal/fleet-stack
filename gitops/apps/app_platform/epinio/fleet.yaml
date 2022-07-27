@@ -15,7 +15,7 @@ targetCustomizations:
         domain: alpha.homelab.platformfeverdream.io
   clusterSelector:
     matchLabels:
-      name: rke2-small-dev-alpha
+      cluster_name: alpha
 
 - name: beta
   helm:
@@ -24,18 +24,8 @@ targetCustomizations:
         domain: beta.homelab.platformfeverdream.io
   clusterSelector:
     matchLabels:
-      name: rke2-small-dev-beta
+      cluster_name: beta
       
 dependsOn:
 - name: essentials-gitops-apps-essentials-cert-manager-cert-manager
 - name: essentials-gitops-apps-essentials-longhorn
-
-diff:
-  comparePatches:
-  - apiVersion: v1
-    delete: true
-    kind: Secret
-    name: registry-creds
-    namespace: workspace
-    operations:
-    - {"op": "ignore"}
