@@ -27,3 +27,14 @@ targetCustomizations:
 dependsOn:
 - name: essentials-gitops-apps-essentials-cert-manager-cert-manager
 - name: essentials-gitops-apps-essentials-longhorn
+
+diff:
+  comparePatches:
+  - apiVersion: v1
+    delete: true
+    kind: Secret
+    name: registry-creds
+    namespace: workspace
+    operations:
+    - {"op": "remove"}
+    - {"op": "remove"}
