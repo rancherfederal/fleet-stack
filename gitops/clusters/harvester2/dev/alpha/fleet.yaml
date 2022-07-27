@@ -10,6 +10,6 @@ diff:
     kind: Cluster
     name: rke2-small-dev-alpha
     namespace: fleet-default
-    # - {"op": "remove", "path": "/spec/rkeConfig/controlPlaneConfig"}
+    - {"op": "remove", "path": "/spec/rkeConfig/controlPlaneConfig"}
     # - {"op": "remove", "path": "/spec/rkeConfig/machinePools/0/workerRole"}
     - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy"}
