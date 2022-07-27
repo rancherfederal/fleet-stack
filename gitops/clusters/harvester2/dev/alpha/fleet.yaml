@@ -10,8 +10,8 @@ diff:
     kind: Cluster
     name: rke2-small-dev-alpha
     namespace: fleet-default
-    - {"op": "add", "path": "/spec/rkeConfig/controlPlaneConfig", "value": {"cni": "calico"}}
-    - {"op": "add", "path": "/spec/rkeConfig/machinePools/0/workerRole", "value": "false"}
+    # - {"op": "add", "path": "/spec/rkeConfig/controlPlaneConfig", "value": {"cni": "calico"}}
+    # - {"op": "add", "path": "/spec/rkeConfig/machinePools/0/workerRole", "value": "false"}
     - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy/controlPlaneDrainOptions/timeout"}
     - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy/workerDrainOptions/timeout"}
     - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy/controlPlaneDrainOptions/timeout"}
