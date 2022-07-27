@@ -11,4 +11,5 @@ spec:
   #! patch command: kubectl patch ClusterGroup -n fleet-local default --type=json -p='[{"op": "remove", "path": "/spec/selector/matchLabels/name"}]'
 
   paths:
-  - "./gitops/clusters/dev"
+  - "./gitops/clusters/harvester1/dev"
+  - "./gitops/clusters/harvester2/dev"

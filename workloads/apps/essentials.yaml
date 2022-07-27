@@ -1,7 +1,7 @@
 kind: GitRepo
 apiVersion: fleet.cattle.io/v1alpha1
 metadata:
-  name: cert-manager-all
+  name: essentials
   namespace: fleet-default
 spec:
   repo: https://github.com/rancherfederal/fleet-stack.git
@@ -22,5 +22,4 @@ spec:
         - harvester
 
   paths:
-  - "./gitops/apps/cert-manager/crds"
-  - "./gitops/apps/cert-manager/cert-manager"
+  - "./gitops/apps/essentials"
