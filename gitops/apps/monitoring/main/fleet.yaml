@@ -13,7 +13,7 @@ diff:
     kind: MutatingWebhookConfiguration
     name: rancher-monitoring-admission
     operations:
-    - {"op": "replace", "path": "/webhooks/0/failurePolicy", "value": "Ignore"}
+    - {"op": "replace", "path": "/webhooks/0/failurePolicy", "value": "Fail"}
 #   - apiVersion: admissionregistration.k8s.io/v1beta1
 #     kind: ValidatingWebhookConfiguration
 #     name: rancher-monitoring-admission
