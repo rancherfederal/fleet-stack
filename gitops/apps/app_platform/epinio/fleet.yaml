@@ -11,8 +11,7 @@ targetCustomizations:
 - name: alpha
   helm:
     values:
-      global:
-        domain: alpha.homelab.platformfeverdream.io
+      global.domain: alpha.homelab.platformfeverdream.io
   clusterSelector:
     matchLabels:
       name: alpha
@@ -20,8 +19,7 @@ targetCustomizations:
 - name: beta
   helm:
     values:
-      global:
-        domain: beta.homelab.platformfeverdream.io
+      global.domain: beta.homelab.platformfeverdream.io
   clusterSelector:
     matchLabels:
       name: alpha
