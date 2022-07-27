@@ -1,0 +1,20 @@
+kind: GitRepo
+apiVersion: fleet.cattle.io/v1alpha1
+metadata:
+  name: epinio
+  namespace: fleet-default
+spec:
+  repo: https://github.com/bcdurden/fleet-demo.git
+  branch: main
+  targets:
+  - clusterName: demo
+
+  # To target specific clusters, uncomment this block
+  # targets:
+  # - name: example
+  #   clusterSelector:
+  #     matchLabels:
+  #       cluster: example
+
+  paths:
+  - "./gitops/app_platform/epinio/helm"
