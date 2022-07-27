@@ -4,25 +4,25 @@ helm:
   releaseName: cluster-template-dev-alpha
   valuesFiles:
     - values.yaml
-diff:
-  comparePatches:
-  - apiVersion: provisioning.cattle.io/v1
-    kind: Cluster
-    name: rke2-small-dev-alpha
-    namespace: fleet-default
-    - {"op": "remove", "path": "/spec"}
-    # - {"op": "add", "path": "/spec/rkeConfig/controlPlaneConfig", "value": {"cni": "calico"}}
-    # - {"op": "add", "path": "/spec/rkeConfig/machinePools/0/workerRole", "value": "false"}
-    # - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy/controlPlaneDrainOptions/timeout"}
-    # - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy/workerDrainOptions/timeout"}
-    # - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy/controlPlaneDrainOptions/timeout"}
-    # - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy/controlPlaneConcurrency"}
-    # - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy/workerConcurrency"}
-    # - {"op": "add", "path": "/spec/rkeConfig/upgradeStrategy/controlPlaneDrainOptions/enabled", "value": "false"}
-    # - {"op": "add", "path": "/spec/rkeConfig/upgradeStrategy/workerDrainOptions/enabled", "value": "false"}
-    # - {"op": "remove", "path": "/spec/rkeConfig/chartValues"}
-    # - {"op": "remove", "path": "/spec/rkeConfig/machineGlobalConfig"}
-    # - {"op": "remove", "path": "/spec/kubernetesVersion"}
-    # - {"op": "remove", "path": "/spec/enableNetworkPolicy"}
-    # - {"op": "remove", "path": "/spec/cloudCredentialSecretName"}
-    # - {"op": "remove", "path": "/spec/localClusterAuthEndpoint"}
+# diff:
+#   comparePatches:
+#   - apiVersion: provisioning.cattle.io/v1
+#     kind: Cluster
+#     name: rke2-small-dev-alpha
+#     namespace: fleet-default
+#     # - {"op": "remove", "path": "/spec"}
+#     # - {"op": "add", "path": "/spec/rkeConfig/controlPlaneConfig", "value": {"cni": "calico"}}
+#     # - {"op": "add", "path": "/spec/rkeConfig/machinePools/0/workerRole", "value": "false"}
+#     # - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy/controlPlaneDrainOptions/timeout"}
+#     # - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy/workerDrainOptions/timeout"}
+#     # - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy/controlPlaneDrainOptions/timeout"}
+#     # - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy/controlPlaneConcurrency"}
+#     # - {"op": "remove", "path": "/spec/rkeConfig/upgradeStrategy/workerConcurrency"}
+#     # - {"op": "add", "path": "/spec/rkeConfig/upgradeStrategy/controlPlaneDrainOptions/enabled", "value": "false"}
+#     # - {"op": "add", "path": "/spec/rkeConfig/upgradeStrategy/workerDrainOptions/enabled", "value": "false"}
+#     # - {"op": "remove", "path": "/spec/rkeConfig/chartValues"}
+#     # - {"op": "remove", "path": "/spec/rkeConfig/machineGlobalConfig"}
+#     # - {"op": "remove", "path": "/spec/kubernetesVersion"}
+#     # - {"op": "remove", "path": "/spec/enableNetworkPolicy"}
+#     # - {"op": "remove", "path": "/spec/cloudCredentialSecretName"}
+#     # - {"op": "remove", "path": "/spec/localClusterAuthEndpoint"}
