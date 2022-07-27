@@ -4,6 +4,9 @@ helm:
   repo: https://charts.rancher.io
   chart: rancher-monitoring
   version: 100.1.2+up19.0.3
+dependsOn:
+- name: rancher-monitoring-crd-gitops-apps-monitoring-crd
+
 diff:
   comparePatches:
   - apiVersion: admissionregistration.k8s.io/v1beta1

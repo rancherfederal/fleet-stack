@@ -1,7 +1,7 @@
 kind: GitRepo
 apiVersion: fleet.cattle.io/v1alpha1
 metadata:
-  name: app-platform
+  name: monitoring
   namespace: fleet-default
 spec:
   repo: https://github.com/rancherfederal/fleet-stack.git
