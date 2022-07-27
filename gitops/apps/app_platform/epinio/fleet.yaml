@@ -28,4 +28,4 @@ targetCustomizations:
       
 dependsOn:
 - name: essentials-gitops-apps-essentials-cert-manager-cert-manager
-- name: essentials-gitops-apps-essentials-longhorn-longhorn
+- name: essentials-gitops-apps-essentials-longhorn
