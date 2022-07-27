@@ -1,0 +1,136 @@
+annotations: {}
+csi:
+  attacherReplicaCount: null
+  kubeletRootDir: null
+  provisionerReplicaCount: null
+  resizerReplicaCount: null
+  snapshotterReplicaCount: null
+defaultSettings:
+  allowNodeDrainWithLastHealthyReplica: null
+  allowRecurringJobWhileVolumeDetached: null
+  allowVolumeCreationWithDegradedAvailability: null
+  autoCleanupSystemGeneratedSnapshot: null
+  autoDeletePodWhenVolumeDetachedUnexpectedly: null
+  autoSalvage: null
+  backingImageCleanupWaitInterval: null
+  backingImageRecoveryWaitInterval: null
+  backupTarget: null
+  backupTargetCredentialSecret: null
+  backupstorePollInterval: null
+  concurrentAutomaticEngineUpgradePerNodeLimit: null
+  concurrentReplicaRebuildPerNodeLimit: null
+  createDefaultDiskLabeledNodes: null
+  defaultDataLocality: null
+  defaultDataPath: null
+  defaultLonghornStaticStorageClass: null
+  defaultReplicaCount: null
+  disableReplicaRebuild: null
+  disableRevisionCounter: null
+  disableSchedulingOnCordonedNode: null
+  guaranteedEngineManagerCPU: null
+  guaranteedReplicaManagerCPU: null
+  mkfsExt4Parameters: null
+  nodeDownPodDeletionPolicy: null
+  priorityClass: null
+  replicaAutoBalance: null
+  replicaReplenishmentWaitInterval: null
+  replicaSoftAntiAffinity: null
+  replicaZoneSoftAntiAffinity: null
+  storageMinimalAvailablePercentage: null
+  storageOverProvisioningPercentage: null
+  systemManagedComponentsNodeSelector: null
+  systemManagedPodsImagePullPolicy: null
+  taintToleration: null
+  upgradeChecker: null
+enablePSP: true
+global:
+  cattle:
+    systemDefaultRegistry: ''
+image:
+  csi:
+    attacher:
+      repository: rancher/mirrored-longhornio-csi-attacher
+      tag: v3.2.1
+    nodeDriverRegistrar:
+      repository: rancher/mirrored-longhornio-csi-node-driver-registrar
+      tag: v2.3.0
+    provisioner:
+      repository: rancher/mirrored-longhornio-csi-provisioner
+      tag: v2.1.2
+    resizer:
+      repository: rancher/mirrored-longhornio-csi-resizer
+      tag: v1.2.0
+    snapshotter:
+      repository: rancher/mirrored-longhornio-csi-snapshotter
+      tag: v3.0.3
+  longhorn:
+    backingImageManager:
+      repository: rancher/mirrored-longhornio-backing-image-manager
+      tag: v2_20210820
+    engine:
+      repository: rancher/mirrored-longhornio-longhorn-engine
+      tag: v1.2.4
+    instanceManager:
+      repository: rancher/mirrored-longhornio-longhorn-instance-manager
+      tag: v1_20220303
+    manager:
+      repository: rancher/mirrored-longhornio-longhorn-manager
+      tag: v1.2.4
+    shareManager:
+      repository: rancher/mirrored-longhornio-longhorn-share-manager
+      tag: v1_20211020
+    ui:
+      repository: rancher/mirrored-longhornio-longhorn-ui
+      tag: v1.2.4
+  pullPolicy: IfNotPresent
+  defaultImage: true
+ingress:
+  annotations: null
+  enabled: false
+  host: sslip.io
+  ingressClassName: null
+  secrets: null
+  tls: false
+  tlsSecret: longhorn.local-tls
+longhornDriver:
+  nodeSelector: {}
+  priorityClass: null
+  tolerations: []
+longhornManager:
+  nodeSelector: {}
+  priorityClass: null
+  tolerations: []
+longhornUI:
+  nodeSelector: {}
+  priorityClass: null
+  tolerations: []
+namespaceOverride: ''
+persistence:
+  backingImage:
+    dataSourceParameters: null
+    dataSourceType: null
+    enable: false
+    expectedChecksum: null
+    name: null
+  defaultClass: true
+  defaultClassReplicaCount: 3
+  defaultFsType: ext4
+  reclaimPolicy: Delete
+  recurringJobSelector:
+    enable: false
+    jobList: []
+privateRegistry:
+  registryPasswd: null
+  registrySecret: null
+  registryUrl: null
+  registryUser: null
+resources: {}
+service:
+  manager:
+    nodePort: ''
+    type: ClusterIP
+  ui:
+    nodePort: null
+    type: ClusterIP
+longhorn:
+  default_setting: false

@@ -1,0 +1,8 @@
+defaultNamespace: longhorn-system
+helm:
+  releaseName: longhorn
+  repo: https://charts.longhorn.io
+  chart: longhorn
+  version: 1.2.4
+  valuesFiles:
+    - values.yaml
