@@ -36,5 +36,4 @@ diff:
     name: registry-creds
     namespace: workspace
     operations:
-    - {"op": "remove"}
-    - {"op": "remove"}
+    - {"op": "ignore"}
