@@ -1,0 +1,6 @@
+defaultNamespace: default
+helm:
+  chart: https://github.com/rancher/cluster-template-examples/raw/main/cluster-template-0.0.1.tgz
+  releaseName: cluster-template-dev-alpha
+  valuesFiles:
+    - values.yaml

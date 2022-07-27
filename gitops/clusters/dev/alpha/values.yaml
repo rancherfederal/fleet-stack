@@ -1,0 +1,66 @@
+cloudCredentialSecretName: cattle-global-data:cc-wqgrc #! this value had to be looked up
+cloudprovider: harvester
+cluster:
+  annotations: {}
+  labels: 
+    environment: dev
+
+  #! must be a unique name
+  name: rke2-small-dev-alpha 
+
+kubernetesVersion: v1.23.7+rke2r2
+monitoring:
+  enabled: false
+rke:
+  localClusterAuthEndpoint:
+    enabled: false
+
+nodepools:
+#! name field must be unique across all clusters
+- name: dev-control-plane-alpha
+  displayName: control-plane
+  etcd: true
+  controlplane: true
+  worker: false
+
+  # specify node labels
+  labels: {}
+
+  # specify node taints
+  taints: {}
+
+  # specify nodepool size
+  quantity: 1
+  diskSize: 40
+  diskBus: virtio
+  cpuCount: 2
+  memorySize: 4
+  networkName: default/workloads
+  networkType: dhcp
+  imageName: default/image-tc258 #! this value had to be looked up
+  vmNamespace: default
+  sshUser: ubuntu
+
+#! name field must be unique across all clusters
+- name: dev-worker-alpha
+  displayName: worker
+  worker: true
+
+  # specify node labels
+  labels: {}
+
+  # specify node taints
+  taints: {}
+
+  # specify nodepool size
+  quantity: 3
+  diskSize: 40
+  diskBus: virtio
+  cpuCount: 2
+  memorySize: 4
+  networkName: default/workloads
+  networkType: dhcp
+  imageName: default/image-tc258 #! this value had to be looked up
+  vmNamespace: default
+  sshUser: ubuntu
+
