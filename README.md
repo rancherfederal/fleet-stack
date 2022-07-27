@@ -52,7 +52,7 @@ The alternative using kubectl only require's doing a `kubectl apply` of all yaml
 One this kicks off, we can view the clusters being built within our Rancher Server UI. Congrats, you've just kicked off a full-stack deployment using Fleet! This includes `LCM` or Lifecycle Management of RKE2 clusters themselves. Formerly, you would be required to enter the UI and deploy each of these items manually by clicking through menus. However, through the magic of Fleet and Rancher, your cluster configurations can be boiled down to a simple yaml file like [this one](gitops/clsuters/harvester1/demo/alpha/values.yaml)!
 
 While that is running, you can view the section below to understand what a Fleet Stack is and why this is cool!
-![success](images/kapp_apply.jpg)
+![success](images/kapp_apply.png)
 
 ## Fleet Stack?
 The term stack is pretty well-known and pretty informative as to what it is. It's a set of software designed/configured to work together to deliver a specific solution. Typically there are multiple layers of dependency involved in a stack and this particular case is no different.
@@ -131,6 +131,8 @@ Admit it, this is the real reason you're here right? I put this section at the b
 The difference here it is that it is declarative and part of K8S instead of being separated into something clunky like Terraform or *gasp* Ansible playbooks. This allows your K8S management layer to control what resources it needs to provision in order to do LCM operations on the clusters it manages. All of it is centralized into K8S objects so it can all be managed with a single toolset and within a single workflow! It may not sound all that cool to some, but the time-savings alone is pretty spectacular. Ask yourself how things might be if K8S clusters were suddenly easy to create and delete on a whim? That day is now.
 
 Rancher provides a great UI for managing these clusters across many clouds and environments from a single location. What you're seeing here is extending that feature into a GitOps-driven process. Instead of editing configurations within a UI, you're editing them in a git-repo because your clusters literally are now `infrastructure-as-code`.
+
+![success](images/cluster_deployed.png)
 
 ### How It Works
 Using the official [Rancher cluster template helm chart](https://github.com/rancher/cluster-template-examples), we can reference this chart within our `fleet.yaml` files and feed it a single values file defining our cluster.
