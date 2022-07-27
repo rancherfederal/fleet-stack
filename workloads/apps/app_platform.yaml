@@ -4,7 +4,7 @@ metadata:
   name: app-platform
   namespace: fleet-default
 spec:
-  repo: https://github.com/bcdurden/fleet-demo.git
+  repo: https://github.com/rancherfederal/fleet-stack.git
   branch: main
 
   # To target specific clusters, uncomment this block
