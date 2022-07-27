@@ -132,7 +132,7 @@ The difference here it is that it is declarative and part of K8S instead of bein
 
 Rancher provides a great UI for managing these clusters across many clouds and environments from a single location. What you're seeing here is extending that feature into a GitOps-driven process. Instead of editing configurations within a UI, you're editing them in a git-repo because your clusters literally are now `infrastructure-as-code`.
 
-![success](images/cluster_deployed.png)
+![success](images/clusters_deployed.png)
 
 ### How It Works
 Using the official [Rancher cluster template helm chart](https://github.com/rancher/cluster-template-examples), we can reference this chart within our `fleet.yaml` files and feed it a single values file defining our cluster.
