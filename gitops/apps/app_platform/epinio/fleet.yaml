@@ -14,7 +14,7 @@ targetCustomizations:
       global.domain: alpha.homelab.platformfeverdream.io
   clusterSelector:
     matchLabels:
-      name: alpha
+      name: rke2-small-dev-alpha
 
 - name: beta
   helm:
@@ -22,7 +22,7 @@ targetCustomizations:
       global.domain: beta.homelab.platformfeverdream.io
   clusterSelector:
     matchLabels:
-      name: alpha
+      name: rke2-small-dev-beta
       
 dependsOn:
 - name: essentials-gitops-apps-essentials-cert-manager-cert-manager
