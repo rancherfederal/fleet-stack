@@ -63,6 +63,9 @@ At the base layer we have our Infrastructure which is Harvester as HCI. Rancher 
 ### RKE2
 At the platform layer we're going to be using RKE2 cluster instances. The default configuration here is for 3. One running on a low-core-count server called `harveter1` and two running on a high-core-count server called `harvester2`
 
+### Architecture
+TODO: Drop in draw.io diagram
+
 ### Cluster Applications
 At the application layer we're installing services like `cert-manager` and `longhorn` as well as an application platform tool called `Epinio`. These are configured to install on specific clusters using label selectors to demonstrate various methods of managing automation to clusters at scale using `Fleet`.
 
