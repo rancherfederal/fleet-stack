@@ -3,11 +3,11 @@ cloudprovider: harvester
 cluster:
   annotations: {}
   labels: 
-    environment: dev
-    cluster_name: alpha
+    environment: shared
+    cluster_name: services
 
   #! must be a unique name
-  name: rke2-small-dev-alpha 
+  name: rke2-shared-services
 
 kubernetesVersion: v1.23.7+rke2r2
 monitoring:
@@ -18,7 +18,7 @@ rke:
 
 nodepools:
 #! name field must be unique across all clusters
-- name: dev-control-plane-alpha
+- name: shared-control-plane-services
   displayName: control-plane
   etcd: true
   controlplane: true
@@ -31,11 +31,11 @@ nodepools:
   taints: {}
 
   # specify nodepool size
-  quantity: 1
+  quantity: 3
   diskSize: 40
   diskBus: virtio
-  cpuCount: 2
-  memorySize: 4
+  cpuCount: 4
+  memorySize: 8
   networkName: default/workloads
   networkType: dhcp
   imageName: default/image-tc258 #! this value had to be looked up
@@ -43,7 +43,7 @@ nodepools:
   sshUser: ubuntu
 
 #! name field must be unique across all clusters
-- name: dev-worker-alpha
+- name: shared-worker-services
   displayName: worker
   worker: true
 
@@ -57,8 +57,8 @@ nodepools:
   quantity: 3
   diskSize: 40
   diskBus: virtio
-  cpuCount: 2
-  memorySize: 4
+  cpuCount: 4
+  memorySize: 8
   networkName: default/workloads
   networkType: dhcp
   imageName: default/image-tc258 #! this value had to be looked up
