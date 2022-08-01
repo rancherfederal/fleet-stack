@@ -2,7 +2,7 @@ defaultNamespace: epinio
 helm:
   repo: https://epinio.github.io/helm-charts
   chart: epinio
-  version: 1.0.1
+  version: 1.1.0
   releaseName: epinio
   valuesFiles:
     - values.yaml
