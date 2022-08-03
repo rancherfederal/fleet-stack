@@ -8,8 +8,8 @@ updateStrategy:
 expose:
   ingress:
     hosts:
-      core: harbor.homelab.platformfeverdream.io
-      notary: notary.harbor.homelab.platformfeverdream.io
+      core: harbor.alpha.homelab.platformfeverdream.io
+      notary: notary.harbor.alpha.homelab.platformfeverdream.io
 
 persistence:
   persistentVolumeClaim:
