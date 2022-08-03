@@ -14,7 +14,7 @@ expose:
 persistence:
   persistentVolumeClaim:
     registry:
-      size: 75Gi
+      size: 25Gi
       storageClass: "longhorn"
     chartmuseum:
       storageClass: "longhorn"
