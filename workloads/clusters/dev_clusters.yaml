@@ -12,4 +12,4 @@ spec:
 
   paths:
   - "./gitops/clusters/harvester1/demo"
-  - "./gitops/clusters/harvester2/dev"
+  #! - "./gitops/clusters/harvester2/dev"
