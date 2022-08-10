@@ -19,5 +19,5 @@ spec:
               number: 9097
   tls:
   - hosts:
-    - tekton.homelab.platformfeverdream.io
+    - tekton.alpha.homelab.platformfeverdream.io
     secretName: tls-tekton-ingress
