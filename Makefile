@@ -22,12 +22,12 @@ check-tools: ## Check to make sure you have the right tools
 
 workloads-check: check-tools
 	@printf "\n===> Synchronizing Workloads with Fleet (dry-run)\n";
-	@ytt -f workloads | kapp deploy -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE) -f -
+	@ytt -f workloads | kapp deploy -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE) -f - $(OPT_ARGS)
 
 workloads-yes: check-tools
 	@printf "\n===> Synchronizing Workloads with Fleet\n";
-	@ytt -f $(WORKLOAD_DIR) | kapp deploy -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE) -f - -y
+	@ytt -f $(WORKLOAD_DIR) | kapp deploy -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE) -f - -y $(OPT_ARGS)
 
 status: check-tools
 	@printf "\n===> Inspecting Running Workloads in Fleet\n";
-	@kapp inspect -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE)
+	@kapp inspect -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE) $(OPT_ARGS)
