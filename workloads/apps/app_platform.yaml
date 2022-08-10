@@ -13,4 +13,5 @@ spec:
         environment: dev
 
   paths:
-  - "./gitops/apps/app_platform/"
+  - "./gitops/apps/app_platform/tekton"
+  #!   - "./gitops/apps/app_platform/"
