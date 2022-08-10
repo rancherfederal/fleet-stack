@@ -13,5 +13,6 @@ spec:
         environment: dev
 
   paths:
-  - "./gitops/apps/app_platform/tekton"
+  - "./gitops/apps/app_platform/tekton/pipelines"
+  - "./gitops/apps/app_platform/tekton/dashboard"
   #!   - "./gitops/apps/app_platform/"
