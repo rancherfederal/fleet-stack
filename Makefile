@@ -27,3 +27,7 @@ workloads-check: check-tools
 workloads-yes: check-tools
 	@printf "\n===> Synchronizing Workloads with Fleet\n";
 	@ytt -f $(WORKLOAD_DIR) | kapp deploy -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE) -f - -y
+
+status: check-tools
+	@printf "\n===> Inspecting Running Workloads in Fleet\n";
+	@kapp inspect -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE)
