@@ -1,5 +1,5 @@
 SHELL:=/bin/bash
-REQUIRED_BINARIES := ytt kubectl imgpkg kapp yq helm docker rancher 
+REQUIRED_BINARIES := ytt kubectl imgpkg kapp yq helm docker rancher kubectx
 WORKING_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 ROOT_DIR := $(shell git rev-parse --show-toplevel)
 WORKLOAD_DIR := ${ROOT_DIR}/workloads
@@ -20,14 +20,26 @@ check-tools: ## Check to make sure you have the right tools
 	$(foreach exec,$(REQUIRED_BINARIES),\
 		$(if $(shell which $(exec)),,$(error "'$(exec)' not found. It is a dependency for this Makefile")))
 
+fleet-patch: 
+	@printf "\n===> Patching Fleet Bug\n";
+	@kubectx local
+	@kubectl patch ClusterGroup -n fleet-local default --type=json -p='[{"op": "remove", "path": "/spec/selector/matchLabels/name"}]
+	@kubectx -
+
 workloads-check: check-tools
 	@printf "\n===> Synchronizing Workloads with Fleet (dry-run)\n";
+	@kubectx local
 	@ytt -f workloads | kapp deploy -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE) -f - 
+	@kubectx -
 
 workloads-yes: check-tools
 	@printf "\n===> Synchronizing Workloads with Fleet\n";
+	@kubectx local
 	@ytt -f $(WORKLOAD_DIR) | kapp deploy -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE) -f - -y 
+	@kubectx -
 
 status: check-tools
 	@printf "\n===> Inspecting Running Workloads in Fleet\n";
+	@kubectx local
 	@kapp inspect -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE) 
+	@kubectx -
