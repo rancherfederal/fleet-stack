@@ -1,4 +1,4 @@
-cloudCredentialSecretName: cattle-global-data:cc-ltgct #! this value had to be looked up
+cloudCredentialSecretName: cattle-global-data:cc-q45sl #! this value had to be looked up
 cloudprovider: harvester
 cluster:
   annotations: {}
@@ -9,7 +9,7 @@ cluster:
   #! must be a unique name
   name: rke2-small-demo-alpha 
 
-kubernetesVersion: v1.23.7+rke2r2
+kubernetesVersion: v1.23.9+rke2r2
 monitoring:
   enabled: false
 rke:
@@ -38,7 +38,7 @@ nodepools:
   memorySize: 4
   networkName: default/workloads
   networkType: dhcp
-  imageName: default/image-d4cpg #! this value had to be looked up
+  imageName: default/image-4jz2k #! this value had to be looked up
   vmNamespace: default
   sshUser: ubuntu
 
@@ -61,7 +61,7 @@ nodepools:
   memorySize: 4
   networkName: default/workloads
   networkType: dhcp
-  imageName: default/image-d4cpg #! this value had to be looked up
+  imageName: default/image-4jz2k #! this value had to be looked up
   vmNamespace: default
   sshUser: ubuntu
 
