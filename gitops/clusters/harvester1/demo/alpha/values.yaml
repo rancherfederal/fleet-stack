@@ -9,7 +9,7 @@ cluster:
   #! must be a unique name
   name: rke2-small-demo-alpha 
 
-kubernetesVersion: v1.23.9+rke2r2
+kubernetesVersion: v1.24.2+rke2r1
 monitoring:
   enabled: false
 rke:
