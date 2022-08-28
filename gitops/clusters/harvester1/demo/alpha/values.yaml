@@ -32,7 +32,7 @@ nodepools:
 
   # specify nodepool size
   quantity: 1
-  diskSize: 40
+  diskSize: 20
   diskBus: virtio
   cpuCount: 2
   memorySize: 4
@@ -55,7 +55,7 @@ nodepools:
 
   # specify nodepool size
   quantity: 3
-  diskSize: 40
+  diskSize: 20
   diskBus: virtio
   cpuCount: 2
   memorySize: 4
