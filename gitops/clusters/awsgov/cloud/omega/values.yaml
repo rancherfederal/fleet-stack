@@ -110,7 +110,7 @@ nodepools:
   monitoring: false
 
   # Make the specified port number accessible from the Internet
-  openPort: ["8080", "8443", "443"]
+  openPort: [8080, 8443, 443]
 
   # Only use a private IP address
   privateAddressOnly: false
@@ -128,7 +128,7 @@ nodepools:
   rootSize: 16
 
   # AWS spot instance bid price (in dollar)
-  spotPrice: 0.5
+  # spotPrice: 0.5
 
   # Set the name of the ssh user
   sshUser: ubuntu
