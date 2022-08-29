@@ -1,6 +1,6 @@
-cloudprovider: amazonec2
+cloudprovider: digitalocean
 
-cloudCredentialSecretName: cattle-global-data:cc-ccjch
+cloudCredentialSecretName: digitalocean
 
 # Specify nodepool options. Can add multiple node groups, specify etcd, controlplane and worker roles.
 nodepools:
@@ -18,7 +18,7 @@ nodepools:
   quantity: 1
 
   # Pause node pool
-  paused: false
+  # paused: false
 
   # specify displayName
   # displayName: ""
@@ -60,93 +60,43 @@ nodepools:
   # machineDeploymentAnnotations: {}
 
   # specify nodepool name
-  name: controlplane-a
+  name: digitalocean-nodepool-1
 
-  # AWS machine image
-  ami: "ami-0f1289f37e46c1eff"
+  # enable backups for droplet
+  # backups: true
 
-  # AWS spot instance duration in minutes (60, 120, 180, 240, 300, or 360)
-  # blockDurationMinutes: 0
+  # Digital Ocean Image
+  image: ubuntu-20-04-x64
 
-  # AWS root device name
-  deviceName: "/dev/sda1"
+  # enable ipv6 for droplet
+  ipv6: false
 
-  # Encrypt the EBS volume using the AWS Managed CMK
-  encryptEbsVolume: false
-  
-  # Optional endpoint URL (hostname only or fully qualified)
-  endpoint: ""
-
-  # AWS IAM Instance Profile
-  iamInstanceProfile: "K8sUnrestrictedCloudProviderRole"
-
-  # Disable SSL when sending requests
-  insecureTransport: false
-
-  # AWS instance type
-  instanceType: t3a.xlarge
-
-  # AWS region
-  region: us-gov-west-1
-
-  # Whether to create `rancher-node` security group. If false, can provide with existing security group
-  createSecurityGroup: true
-  # createSecurityGroup: false
-  # securityGroups: []
-
-  # AWS keypair to use
-  keypairName: "brian_homelab_aws"
-
-  # Skip adding default rules to security groups
-  securityGroupReadonly: false
-
-  # File contents for sshKeyContents
-  sshKeyContents: ""
-
-  # AWS VPC subnet id
-  subnetId: "subnet-0d0cd26cf51719ef2"
-
-  # Set this flag to enable CloudWatch monitoring
+  # enable monitoring for droplet
   monitoring: false
 
-  # Make the specified port number accessible from the Internet
-  openPort: ["8080", "8443", "443"]
+  # enable private networking for droplet
+  privateNetworking: false
 
-  # Only use a private IP address
-  privateAddressOnly: false
+  # Digital Ocean region
+  region: sfo3
 
-  # Set this flag to request spot instance
-  requestSpotInstance: false
+  # Digital Ocean size
+  size: s-4vcpu-8gb
 
-  # AWS Tags (e.g. key1,value1,key2,value2)
-  tags: "owner, brian, KeepRunning, true"
+  # File contents for sshKeyContents
+  # sshKeyContents: ""
 
-  # Set retry count for recoverable failures (use -1 to disable)
-  retries: 5
+  # SSH key fingerprint
+  # sshKeyFingerprint: ""
 
-  # AWS root disk size (in GB)
-  rootSize: 16
+  # SSH port
+  sshPort: 22
 
-  # AWS spot instance bid price (in dollar)
-  spotPrice: 0.5
+  # SSH username
+  sshUser: root
 
-  # Set the name of the ssh user
-  sshUser: ubuntu
-
-  # Amazon EBS volume type
-  volumeType: gp2
-
-  # AWS VPC id
-  vpcId: "vpc-06a1e85ad08595b21"
-
-  # Create an EBS optimized instance
-  useEbsOptimizedInstance: false
-
-  # Force the usage of private IP address
-  usePrivateAddress: false
+  # comma-separated list of tags to apply to the Droplet
+  # tags: ""
 
   # File contents for userdata
-  userdata: ""
-
-  # AWS zone for instance (i.e. a,b,c,d,e)
-  zone: a
+  # userdata: ""

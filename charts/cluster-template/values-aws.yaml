@@ -1,6 +1,6 @@
 cloudprovider: amazonec2
 
-cloudCredentialSecretName: cattle-global-data:cc-ccjch
+cloudCredentialSecretName: amazonec2
 
 # Specify nodepool options. Can add multiple node groups, specify etcd, controlplane and worker roles.
 nodepools:
@@ -60,10 +60,10 @@ nodepools:
   # machineDeploymentAnnotations: {}
 
   # specify nodepool name
-  name: controlplane-a
+  name: ec2-nodepool-1
 
   # AWS machine image
-  ami: "ami-0f1289f37e46c1eff"
+  # ami: ""
 
   # AWS spot instance duration in minutes (60, 120, 180, 240, 300, or 360)
   # blockDurationMinutes: 0
@@ -78,16 +78,16 @@ nodepools:
   endpoint: ""
 
   # AWS IAM Instance Profile
-  iamInstanceProfile: "K8sUnrestrictedCloudProviderRole"
+  iamInstanceProfile: ""
 
   # Disable SSL when sending requests
   insecureTransport: false
 
   # AWS instance type
-  instanceType: t3a.xlarge
+  instanceType: t3a.medium
 
   # AWS region
-  region: us-gov-west-1
+  region: us-west-2
 
   # Whether to create `rancher-node` security group. If false, can provide with existing security group
   createSecurityGroup: true
@@ -95,7 +95,7 @@ nodepools:
   # securityGroups: []
 
   # AWS keypair to use
-  keypairName: "brian_homelab_aws"
+  keypairName: ""
 
   # Skip adding default rules to security groups
   securityGroupReadonly: false
@@ -104,13 +104,13 @@ nodepools:
   sshKeyContents: ""
 
   # AWS VPC subnet id
-  subnetId: "subnet-0d0cd26cf51719ef2"
+  subnetId: ""
 
   # Set this flag to enable CloudWatch monitoring
   monitoring: false
 
   # Make the specified port number accessible from the Internet
-  openPort: ["8080", "8443", "443"]
+  # openPort: ["8080", "8443"]
 
   # Only use a private IP address
   privateAddressOnly: false
@@ -119,7 +119,7 @@ nodepools:
   requestSpotInstance: false
 
   # AWS Tags (e.g. key1,value1,key2,value2)
-  tags: "owner, brian, KeepRunning, true"
+  # tags: "foo,bar"
 
   # Set retry count for recoverable failures (use -1 to disable)
   retries: 5
@@ -137,7 +137,7 @@ nodepools:
   volumeType: gp2
 
   # AWS VPC id
-  vpcId: "vpc-06a1e85ad08595b21"
+  # vpcId: ""
 
   # Create an EBS optimized instance
   useEbsOptimizedInstance: false
@@ -150,3 +150,4 @@ nodepools:
 
   # AWS zone for instance (i.e. a,b,c,d,e)
   zone: a
+

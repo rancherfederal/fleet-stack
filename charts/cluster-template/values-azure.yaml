@@ -1,6 +1,6 @@
-cloudprovider: amazonec2
+cloudprovider: azure
 
-cloudCredentialSecretName: cattle-global-data:cc-ccjch
+cloudCredentialSecretName: azure
 
 # Specify nodepool options. Can add multiple node groups, specify etcd, controlplane and worker roles.
 nodepools:
@@ -60,93 +60,76 @@ nodepools:
   # machineDeploymentAnnotations: {}
 
   # specify nodepool name
-  name: controlplane-a
+  name: azure-nodepool-1
 
-  # AWS machine image
-  ami: "ami-0f1289f37e46c1eff"
+  # Azure Availability Set to place the virtual machine into
+  # availabilitySet: docker-machine
 
-  # AWS spot instance duration in minutes (60, 120, 180, 240, 300, or 360)
-  # blockDurationMinutes: 0
+  # Azure Service Principal Account ID (optional, browser auth is used if not specified)
+  # clientId: ""
 
-  # AWS root device name
-  deviceName: "/dev/sda1"
+  # File contents for customData
+  # customData: ""
 
-  # Encrypt the EBS volume using the AWS Managed CMK
-  encryptEbsVolume: false
-  
-  # Optional endpoint URL (hostname only or fully qualified)
-  endpoint: ""
+  # Disk size if using managed disk
+  # diskSize: "30"
 
-  # AWS IAM Instance Profile
-  iamInstanceProfile: "K8sUnrestrictedCloudProviderRole"
+  # A unique DNS label for the public IP adddress
+  # dns: ""
 
-  # Disable SSL when sending requests
-  insecureTransport: false
+  # Azure environment (e.g. AzurePublicCloud, AzureChinaCloud)
+  # environment: AzurePublicCloud
 
-  # AWS instance type
-  instanceType: t3a.xlarge
+  # Fault domain count to use for availability set
+  # faultDomainCount: 3
 
-  # AWS region
-  region: us-gov-west-1
+  # Azure virtual machine OS image
+  # image: "canonical:UbuntuServer:18.04-LTS:latest"
 
-  # Whether to create `rancher-node` security group. If false, can provide with existing security group
-  createSecurityGroup: true
-  # createSecurityGroup: false
-  # securityGroups: []
+  # Azure region to create the virtual machine
+  # location: westus
 
-  # AWS keypair to use
-  keypairName: "brian_homelab_aws"
+  # Configures VM and availability set for managed disks
+  # managedDisks: false
 
-  # Skip adding default rules to security groups
-  securityGroupReadonly: false
-
-  # File contents for sshKeyContents
-  sshKeyContents: ""
-
-  # AWS VPC subnet id
-  subnetId: "subnet-0d0cd26cf51719ef2"
-
-  # Set this flag to enable CloudWatch monitoring
-  monitoring: false
+  # Do not create a public IP address for the machine
+  # noPublicIp: false
 
   # Make the specified port number accessible from the Internet
-  openPort: ["8080", "8443", "443"]
+  # openPort: ["8080", "8443"]
 
-  # Only use a private IP address
-  privateAddressOnly: false
+  # Specify a static private IP address for the machine
+  # privateIpAddress: ""
 
-  # Set this flag to request spot instance
-  requestSpotInstance: false
+  # Azure Resource Group name (will be created if missing)
+  # resourceGroup: "docker-machine"
 
-  # AWS Tags (e.g. key1,value1,key2,value2)
-  tags: "owner, brian, KeepRunning, true"
+  # Size for Azure Virtual Machine
+  # size: Standard_D2_v2
 
-  # Set retry count for recoverable failures (use -1 to disable)
-  retries: 5
+  # Username for SSH login
+  # sshUser: docker-user
 
-  # AWS root disk size (in GB)
-  rootSize: 16
+  # Assign a static public IP address to the machine
+  # staticPublicIp: false
 
-  # AWS spot instance bid price (in dollar)
-  spotPrice: 0.5
+  # Type of Storage Account to host the OS Disk for the machine
+  # storageType: Standard_LRS
 
-  # Set the name of the ssh user
-  sshUser: ubuntu
+  # Azure Subnet Name to be used within the Virtual Network
+  # subnet: docker-machine
 
-  # Amazon EBS volume type
-  volumeType: gp2
+  # Private CIDR block to be used for the new subnet, should comply RFC 1918
+  # subnetPrefix: "192.168.0.0/16"
 
-  # AWS VPC id
-  vpcId: "vpc-06a1e85ad08595b21"
+  # Azure Subscription ID
+  # subscriptionId: ""
 
-  # Create an EBS optimized instance
-  useEbsOptimizedInstance: false
+  # Update domain count to use for availability set
+  # updateDomainCount: "5"
 
-  # Force the usage of private IP address
-  usePrivateAddress: false
+  # Use private IP address of the machine to connect
+  # usePrivateIp: "false"
 
-  # File contents for userdata
-  userdata: ""
-
-  # AWS zone for instance (i.e. a,b,c,d,e)
-  zone: a
+  # Azure Virtual Network name to connect the virtual machine (in [resourcegroup:]name format)
+  # vnet: "docker-machine-vnet"
