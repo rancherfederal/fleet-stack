@@ -1,6 +1,6 @@
 defaultNamespace: default
 helm:
-  chart: https://github.com/rancher/cluster-template-examples/raw/main/cluster-template-0.0.1.tgz
+  chart: https://harbor.homelab.platformfeverdream.io/chartrepo/rancher/cluster-template
   releaseName: cluster-template-cloud-omega
   valuesFiles:
     - values.yaml
