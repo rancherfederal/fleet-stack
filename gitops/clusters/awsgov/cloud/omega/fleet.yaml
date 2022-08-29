@@ -1,6 +1,6 @@
 defaultNamespace: default
 helm:
-  chart: epinio
+  chart: cluster-template
   version: 0.0.1
   repo: https://harbor.homelab.platformfeverdream.io/chartrepo/rancher
   releaseName: cluster-template-cloud-omega
