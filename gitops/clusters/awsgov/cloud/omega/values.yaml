@@ -166,3 +166,327 @@ nodepools:
 
   # AWS zone for instance (i.e. a,b,c,d,e)
   zone: a
+- etcd: false
+  controlplane: false
+  worker: true
+  displayName: worker-a
+
+  # specify node labels
+  labels: {}
+
+  # specify node taints
+  taints: {}
+
+  # specify nodepool size
+  quantity: 1
+
+  # Pause node pool
+  paused: false
+
+  # specify nodepool name
+  name: worker-a
+
+  # AWS machine image
+  ami: "ami-0f1289f37e46c1eff"
+
+  # AWS spot instance duration in minutes (60, 120, 180, 240, 300, or 360)
+  # blockDurationMinutes: 0
+
+  # AWS root device name
+  deviceName: "/dev/sda1"
+
+  # Encrypt the EBS volume using the AWS Managed CMK
+  encryptEbsVolume: false
+  
+  # Optional endpoint URL (hostname only or fully qualified)
+  endpoint: ""
+
+  # AWS IAM Instance Profile
+  iamInstanceProfile: "K8sUnrestrictedCloudProviderRole"
+
+  # Disable SSL when sending requests
+  insecureTransport: false
+
+  # AWS instance type
+  instanceType: t3a.xlarge
+
+  # AWS region
+  region: us-gov-west-1
+
+  # Whether to create `rancher-node` security group. If false, can provide with existing security group
+  createSecurityGroup: true
+  # createSecurityGroup: false
+  # securityGroups: []
+
+  # AWS keypair to use
+  keypairName: ""
+
+  # Skip adding default rules to security groups
+  securityGroupReadonly: false
+
+  # File contents for sshKeyContents
+  sshKeyContents: ""
+
+  # AWS VPC subnet id
+  subnetId: "subnet-0d0cd26cf51719ef2"
+
+  # Set this flag to enable CloudWatch monitoring
+  monitoring: false
+
+  # Make the specified port number accessible from the Internet
+  openPort: ["8080", "8443", "443"]
+
+  # Only use a private IP address
+  privateAddressOnly: false
+
+  # Set this flag to request spot instance
+  requestSpotInstance: false
+
+  # AWS Tags (e.g. key1,value1,key2,value2)
+  tags: "owner, brian, KeepRunning, true"
+
+  # Set retry count for recoverable failures (use -1 to disable)
+  retries: "5"
+
+  # AWS root disk size (in GB)
+  rootSize: "16"
+
+  # AWS spot instance bid price (in dollar)
+  # spotPrice: 0.5
+
+  # Set the name of the ssh user
+  sshUser: ubuntu
+
+  # Amazon EBS volume type
+  volumeType: gp2
+
+  # AWS VPC id
+  vpcId: "vpc-06a1e85ad08595b21"
+
+  # Create an EBS optimized instance
+  useEbsOptimizedInstance: false
+
+  # Force the usage of private IP address
+  usePrivateAddress: false
+
+  # File contents for userdata
+  userdata: ""
+
+  # AWS zone for instance (i.e. a,b,c,d,e)
+  zone: a
+- etcd: false
+  controlplane: false
+  worker: true
+  displayName: worker-b
+
+  # specify node labels
+  labels: {}
+
+  # specify node taints
+  taints: {}
+
+  # specify nodepool size
+  quantity: 1
+
+  # Pause node pool
+  paused: false
+
+  # specify nodepool name
+  name: worker-b
+
+  # AWS machine image
+  ami: "ami-0f1289f37e46c1eff"
+
+  # AWS spot instance duration in minutes (60, 120, 180, 240, 300, or 360)
+  # blockDurationMinutes: 0
+
+  # AWS root device name
+  deviceName: "/dev/sda1"
+
+  # Encrypt the EBS volume using the AWS Managed CMK
+  encryptEbsVolume: false
+  
+  # Optional endpoint URL (hostname only or fully qualified)
+  endpoint: ""
+
+  # AWS IAM Instance Profile
+  iamInstanceProfile: "K8sUnrestrictedCloudProviderRole"
+
+  # Disable SSL when sending requests
+  insecureTransport: false
+
+  # AWS instance type
+  instanceType: t3a.xlarge
+
+  # AWS region
+  region: us-gov-west-1
+
+  # Whether to create `rancher-node` security group. If false, can provide with existing security group
+  createSecurityGroup: true
+  # createSecurityGroup: false
+  # securityGroups: []
+
+  # AWS keypair to use
+  keypairName: ""
+
+  # Skip adding default rules to security groups
+  securityGroupReadonly: false
+
+  # File contents for sshKeyContents
+  sshKeyContents: ""
+
+  # AWS VPC subnet id
+  subnetId: "subnet-0d0cd26cf51719ef2"
+
+  # Set this flag to enable CloudWatch monitoring
+  monitoring: false
+
+  # Make the specified port number accessible from the Internet
+  openPort: ["8080", "8443", "443"]
+
+  # Only use a private IP address
+  privateAddressOnly: false
+
+  # Set this flag to request spot instance
+  requestSpotInstance: false
+
+  # AWS Tags (e.g. key1,value1,key2,value2)
+  tags: "owner, brian, KeepRunning, true"
+
+  # Set retry count for recoverable failures (use -1 to disable)
+  retries: "5"
+
+  # AWS root disk size (in GB)
+  rootSize: "16"
+
+  # AWS spot instance bid price (in dollar)
+  # spotPrice: 0.5
+
+  # Set the name of the ssh user
+  sshUser: ubuntu
+
+  # Amazon EBS volume type
+  volumeType: gp2
+
+  # AWS VPC id
+  vpcId: "vpc-06a1e85ad08595b21"
+
+  # Create an EBS optimized instance
+  useEbsOptimizedInstance: false
+
+  # Force the usage of private IP address
+  usePrivateAddress: false
+
+  # File contents for userdata
+  userdata: ""
+
+  # AWS zone for instance (i.e. a,b,c,d,e)
+  zone: b
+- etcd: false
+  controlplane: false
+  worker: true
+  displayName: worker-c
+
+  # specify node labels
+  labels: {}
+
+  # specify node taints
+  taints: {}
+
+  # specify nodepool size
+  quantity: 1
+
+  # Pause node pool
+  paused: false
+
+  # specify nodepool name
+  name: worker-c
+
+  # AWS machine image
+  ami: "ami-0f1289f37e46c1eff"
+
+  # AWS spot instance duration in minutes (60, 120, 180, 240, 300, or 360)
+  # blockDurationMinutes: 0
+
+  # AWS root device name
+  deviceName: "/dev/sda1"
+
+  # Encrypt the EBS volume using the AWS Managed CMK
+  encryptEbsVolume: false
+  
+  # Optional endpoint URL (hostname only or fully qualified)
+  endpoint: ""
+
+  # AWS IAM Instance Profile
+  iamInstanceProfile: "K8sUnrestrictedCloudProviderRole"
+
+  # Disable SSL when sending requests
+  insecureTransport: false
+
+  # AWS instance type
+  instanceType: t3a.xlarge
+
+  # AWS region
+  region: us-gov-west-1
+
+  # Whether to create `rancher-node` security group. If false, can provide with existing security group
+  createSecurityGroup: true
+  # createSecurityGroup: false
+  # securityGroups: []
+
+  # AWS keypair to use
+  keypairName: ""
+
+  # Skip adding default rules to security groups
+  securityGroupReadonly: false
+
+  # File contents for sshKeyContents
+  sshKeyContents: ""
+
+  # AWS VPC subnet id
+  subnetId: "subnet-0d0cd26cf51719ef2"
+
+  # Set this flag to enable CloudWatch monitoring
+  monitoring: false
+
+  # Make the specified port number accessible from the Internet
+  openPort: ["8080", "8443", "443"]
+
+  # Only use a private IP address
+  privateAddressOnly: false
+
+  # Set this flag to request spot instance
+  requestSpotInstance: false
+
+  # AWS Tags (e.g. key1,value1,key2,value2)
+  tags: "owner, brian, KeepRunning, true"
+
+  # Set retry count for recoverable failures (use -1 to disable)
+  retries: "5"
+
+  # AWS root disk size (in GB)
+  rootSize: "16"
+
+  # AWS spot instance bid price (in dollar)
+  # spotPrice: 0.5
+
+  # Set the name of the ssh user
+  sshUser: ubuntu
+
+  # Amazon EBS volume type
+  volumeType: gp2
+
+  # AWS VPC id
+  vpcId: "vpc-06a1e85ad08595b21"
+
+  # Create an EBS optimized instance
+  useEbsOptimizedInstance: false
+
+  # Force the usage of private IP address
+  usePrivateAddress: false
+
+  # File contents for userdata
+  userdata: ""
+
+  # AWS zone for instance (i.e. a,b,c,d,e)
+  zone: c
