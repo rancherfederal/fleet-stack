@@ -166,6 +166,7 @@ nodepools:
 
   # AWS zone for instance (i.e. a,b,c,d,e)
   zone: a
+  
 - etcd: false
   controlplane: false
   worker: true
@@ -274,6 +275,7 @@ nodepools:
 
   # AWS zone for instance (i.e. a,b,c,d,e)
   zone: a
+
 - etcd: false
   controlplane: false
   worker: true
@@ -382,6 +384,7 @@ nodepools:
 
   # AWS zone for instance (i.e. a,b,c,d,e)
   zone: b
+
 - etcd: false
   controlplane: false
   worker: true
