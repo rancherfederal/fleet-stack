@@ -111,7 +111,7 @@ nodepools:
   # securityGroups: []
 
   # AWS keypair to use
-  keypairName: "brian_homelab_aws"
+  keypairName: ""
 
   # Skip adding default rules to security groups
   securityGroupReadonly: false
