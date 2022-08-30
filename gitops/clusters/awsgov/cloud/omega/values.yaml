@@ -4,8 +4,8 @@ cloudCredentialSecretName: cattle-global-data:cc-ccjch
 cluster:
   annotations: {}
   labels: 
-    environment: dev
-    cluster_name: alpha
+    environment: cloud
+    cluster_name: omega
 
   #! must be a unique name
   name: rke2-aws-cloud-omega
@@ -22,6 +22,7 @@ nodepools:
 - etcd: true
   controlplane: true
   worker: true
+  displayName: control-plane
 
   # specify node labels
   labels: {}
@@ -125,7 +126,7 @@ nodepools:
   monitoring: false
 
   # Make the specified port number accessible from the Internet
-  openPort: [8080, 8443, 443]
+  openPort: ["8080", "8443", "443"]
 
   # Only use a private IP address
   privateAddressOnly: false
@@ -137,10 +138,10 @@ nodepools:
   tags: "owner, brian, KeepRunning, true"
 
   # Set retry count for recoverable failures (use -1 to disable)
-  retries: 5
+  retries: "5"
 
   # AWS root disk size (in GB)
-  rootSize: 16
+  rootSize: "16"
 
   # AWS spot instance bid price (in dollar)
   # spotPrice: 0.5
