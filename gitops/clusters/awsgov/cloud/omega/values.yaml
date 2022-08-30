@@ -336,7 +336,7 @@ nodepools:
   sshKeyContents: ""
 
   # AWS VPC subnet id
-  subnetId: "subnet-0d0cd26cf51719ef2"
+  subnetId: "subnet-09bd4e09215b4f39f"
 
   # Set this flag to enable CloudWatch monitoring
   monitoring: false
@@ -444,7 +444,7 @@ nodepools:
   sshKeyContents: ""
 
   # AWS VPC subnet id
-  subnetId: "subnet-0d0cd26cf51719ef2"
+  subnetId: "subnet-0116d99e8f363e0cb"
 
   # Set this flag to enable CloudWatch monitoring
   monitoring: false
