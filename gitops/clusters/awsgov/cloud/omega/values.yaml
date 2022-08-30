@@ -31,7 +31,7 @@ nodepools:
   taints: {}
 
   # specify nodepool size
-  quantity: 1
+  quantity: 3
 
   # Pause node pool
   paused: false
@@ -166,7 +166,7 @@ nodepools:
 
   # AWS zone for instance (i.e. a,b,c,d,e)
   zone: a
-  
+
 - etcd: false
   controlplane: false
   worker: true
@@ -179,7 +179,7 @@ nodepools:
   taints: {}
 
   # specify nodepool size
-  quantity: 1
+  quantity: 2
 
   # Pause node pool
   paused: false
@@ -288,7 +288,7 @@ nodepools:
   taints: {}
 
   # specify nodepool size
-  quantity: 1
+  quantity: 2
 
   # Pause node pool
   paused: false
@@ -397,7 +397,7 @@ nodepools:
   taints: {}
 
   # specify nodepool size
-  quantity: 1
+  quantity: 2
 
   # Pause node pool
   paused: false
