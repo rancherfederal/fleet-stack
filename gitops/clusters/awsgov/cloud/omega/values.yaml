@@ -1,6 +1,21 @@
 cloudprovider: amazonec2
 
 cloudCredentialSecretName: cattle-global-data:cc-ccjch
+cluster:
+  annotations: {}
+  labels: 
+    environment: dev
+    cluster_name: alpha
+
+  #! must be a unique name
+  name: rke2-aws-cloud-omega
+
+kubernetesVersion: v1.24.2+rke2r1
+monitoring:
+  enabled: false
+rke:
+  localClusterAuthEndpoint:
+    enabled: false
 
 # Specify nodepool options. Can add multiple node groups, specify etcd, controlplane and worker roles.
 nodepools:
