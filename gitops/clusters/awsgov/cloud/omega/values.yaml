@@ -208,7 +208,7 @@ nodepools:
   requestSpotInstance: false
 
   # AWS Tags (e.g. key1,value1,key2,value2)
-  tags: "owner, brian, KeepRunning, true"
+  tags: "owner,brian,KeepRunning,true"
 
   # Set retry count for recoverable failures (use -1 to disable)
   retries: "5"
