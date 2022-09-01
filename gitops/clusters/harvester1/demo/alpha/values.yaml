@@ -1,67 +1,51 @@
-cloudCredentialSecretName: cattle-global-data:cc-q45sl #! this value had to be looked up
 cloudprovider: harvester
+cloudCredentialSecretName: cattle-global-data:cc-q45sl
 cluster:
   annotations: {}
-  labels: 
-    environment: dev
+  labels:
+    environment: demo
     cluster_name: alpha
-
-  #! must be a unique name
-  name: rke2-small-demo-alpha 
-
+  name: rke2-harvester-demo-alpha
 kubernetesVersion: v1.24.2+rke2r1
 monitoring:
   enabled: false
 rke:
   localClusterAuthEndpoint:
     enabled: false
-
 nodepools:
-#! name field must be unique across all clusters
-- name: demo-control-plane-alpha
-  displayName: control-plane
-  etcd: true
+- etcd: true
   controlplane: true
   worker: false
-
-  # specify node labels
+  displayName: control-plane-nodes
+  name: control-plane-nodes
   labels: {}
-
-  # specify node taints
   taints: {}
-
-  # specify nodepool size
   quantity: 1
+  paused: false
   diskSize: 20
   diskBus: virtio
   cpuCount: 2
   memorySize: 4
   networkName: default/workloads
   networkType: dhcp
-  imageName: default/image-4jz2k #! this value had to be looked up
+  imageName: default/image-4jz2k
   vmNamespace: default
   sshUser: ubuntu
-
-#! name field must be unique across all clusters
-- name: demo-worker-alpha
-  displayName: worker
+- etcd: false
+  controlplane: false
   worker: true
-
-  # specify node labels
+  displayName: worker-nodes
+  name: worker-nodes
   labels: {}
-
-  # specify node taints
   taints: {}
-
-  # specify nodepool size
   quantity: 3
+  paused: false
   diskSize: 20
   diskBus: virtio
   cpuCount: 2
   memorySize: 4
   networkName: default/workloads
   networkType: dhcp
-  imageName: default/image-4jz2k #! this value had to be looked up
+  imageName: default/image-4jz2k
   vmNamespace: default
   sshUser: ubuntu
-
