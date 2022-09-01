@@ -44,3 +44,6 @@ status: check-tools
 	@kubectx $(LOCAL_CLUSTER_NAME)
 	@kapp inspect -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE) 
 	@kubectx -
+
+cluster-generate-aws: check-tools
+	@ytt -f templates/cluster/aws/aws_cluster_template.yaml -f $(AWS_CLUSTER_VALUES)
