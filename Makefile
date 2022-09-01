@@ -47,3 +47,5 @@ status: check-tools
 
 cluster-generate-aws: check-tools
 	@ytt -f templates/cluster/aws/aws_cluster_template.yaml -f $(AWS_CLUSTER_VALUES)
+cluster-generate-harvester: check-tools
+	@ytt -f templates/cluster/harvester/harvester_cluster_template.yaml -f $(HARVESTER_CLUSTER_VALUES)
