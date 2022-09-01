@@ -38,7 +38,7 @@ monitoring: {{ $nodepool.monitoring }}
 {{- if $nodepool.openPort}}
 openPort: 
 {{- range $i, $port := $nodepool.openPort }}
-- {{ $port }}
+- {{ $port | quote }}
 {{- end }}
 {{- end }}
 {{- if $nodepool.privateAddressOnly }}
@@ -51,10 +51,10 @@ region: {{ $nodepool.region }}
 requestSpotInstance: {{ $nodepool.requestSpotInstance }}
 {{- end }}
 {{- if $nodepool.retries }}
-retries: {{ $nodepool.retries }}
+retries: {{ $nodepool.retries | quote }}
 {{- end }}
 {{- if $nodepool.rootSize }}
-rootSize: {{ $nodepool.rootSize }}
+rootSize: {{ $nodepool.rootSize | quote }}
 {{- end }}
 securityGroup:
 {{- if $nodepool.createSecurityGroup }}
@@ -152,7 +152,7 @@ monitoring: {{ $nodepool.monitoring }}
 {{- if $nodepool.openPort}}
 openPort: 
 {{- range $i, $port := $nodepool.openPort }}
-- {{ $port }}
+- {{ $port | quote }}
 {{- end }}
 {{- end }}
 {{- if $nodepool.privateAddressOnly }}
@@ -165,10 +165,10 @@ region: {{ $nodepool.region }}
 requestSpotInstance: {{ $nodepool.requestSpotInstance }}
 {{- end }}
 {{- if $nodepool.retries }}
-retries: {{ $nodepool.retries }}
+retries: {{ $nodepool.retries | quote }}
 {{- end }}
 {{- if $nodepool.rootSize }}
-rootSize: {{ $nodepool.rootSize }}
+rootSize: {{ $nodepool.rootSize | quote }}
 {{- end }}
 {{- if $nodepool.createSecurityGroup }}
 securityGroup:
