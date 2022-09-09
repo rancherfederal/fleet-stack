@@ -2,7 +2,8 @@
 Using fleet we're going to deploy an entire stack, clusters and apps/services.
 
 ## Prereqs
-* Two harvester nodes (though this can be changed to only need one)
+* One Harvester node managed by Rancher with cloud credentials set
+* Paved AWS account (VPCs and subnets) and cloud credentials set in Rancher Server if using the AWS cluster.
 * kubectl with local cluster kubeconfig as current context
 * running `Rancher Server`
 * patched default `ClusterGroup` in `fleet-local` namespace (see below for how)
@@ -13,6 +14,11 @@ There's a bug in fleet right now that has yet to be fixed. It prevents us from d
 ```console
 make fleet-patch'
 ```
+
+## Configuration
+Due to how Rancher names credential and other related objects with unfriendly names, configuring the cluster yamls may require some editing to match them to whatever internal cloud credentials you have created in your Rancher instance.
+
+To ease creation of cluster configs, I've added some ytt templating into `templates/` that can be utilized via the `Makefile` under the `cluster-generate-` targets defined. See the templates directory for examples of what that can look like. It is recommended you use these to generate cluster config yaml files as the helm templates (as all helm templates) are a very difficult read and do not flow in a natural way.
 
 ## Automatic HowTo
 To obsurce away some of the Carvel tools, there is a Makefile in play that will allow you to dry-run and then run your workloads (which are GitRepo objects under the hood). Objects going to the `fleet-local` namespace are clusters and the others are applications.
