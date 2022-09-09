@@ -25,7 +25,7 @@ controlplane:
   create_security_groups: true
   security_groups: [] #! only useful if create flag is off
   ports: ["8080", "8443", "443"]
-  tags: "owner, brian, KeepRunning, true"
+  tags: "owner,brian,KeepRunning,true"
   use_private_address: false
   use_private_address_only: false
   userdata: ""
@@ -46,7 +46,7 @@ workers:
   create_security_groups: true
   security_groups: [] #! only useful if create flag is off
   ports: ["8080", "8443", "443"]
-  tags: "owner, brian, KeepRunning, true"
+  tags: "owner,brian,KeepRunning,true"
   use_private_address: false
   use_private_address_only: false
   userdata: ""

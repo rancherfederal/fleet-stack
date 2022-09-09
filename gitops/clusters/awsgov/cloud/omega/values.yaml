@@ -43,7 +43,7 @@ nodepools:
   - "443"
   privateAddressOnly: false
   requestSpotInstance: false
-  tags: owner, brian, KeepRunning, true
+  tags: owner,brian,KeepRunning,true
   retries: 5
   rootSize: 20
   sshUser: ubuntu
@@ -83,7 +83,7 @@ nodepools:
   - "443"
   privateAddressOnly: false
   requestSpotInstance: false
-  tags: owner, brian, KeepRunning, true
+  tags: owner,brian,KeepRunning,true
   retries: 5
   rootSize: 20
   sshUser: ubuntu
@@ -123,7 +123,7 @@ nodepools:
   - "443"
   privateAddressOnly: false
   requestSpotInstance: false
-  tags: owner, brian, KeepRunning, true
+  tags: owner,brian,KeepRunning,true
   retries: 5
   rootSize: 20
   sshUser: ubuntu
@@ -163,7 +163,7 @@ nodepools:
   - "443"
   privateAddressOnly: false
   requestSpotInstance: false
-  tags: owner, brian, KeepRunning, true
+  tags: owner,brian,KeepRunning,true
   retries: 5
   rootSize: 20
   sshUser: ubuntu
