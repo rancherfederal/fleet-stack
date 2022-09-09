@@ -43,7 +43,7 @@ nodepools:
   - "443"
   privateAddressOnly: false
   requestSpotInstance: false
-  tags: owner,brian,KeepRunning,true
+  tags: owner,brian,KeepRunning,true,changed,true
   retries: 5
   rootSize: 20
   sshUser: ubuntu
