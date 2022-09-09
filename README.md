@@ -9,12 +9,48 @@ Using fleet we're going to deploy an entire stack, clusters and apps/services.
 * *Optional* [kapp, ytt](https://carvel.dev), [kubecm](https://github.com/sunny0826/kubecm)
 
 ### Patching ClusterGroup
-There's a bug in fleet right now that has yet to be fixed. It prevents us from deploying applications to our local cluster. This is an easy permanent fix, just run:
+There's a bug in fleet right now that has yet to be fixed. It prevents us from deploying applications to our local cluster. This is an easy permanent fix, just run the below with your kube context pointed at your local cluster:
 ```console
-kubectl patch ClusterGroup -n fleet-local default --type=json -p='[{"op": "remove", "path": "/spec/selector/matchLabels/name"}]'
+make fleet-patch'
 ```
 
-## HowTo
+## Automatic HowTo
+To obsurce away some of the Carvel tools, there is a Makefile in play that will allow you to dry-run and then run your workloads (which are GitRepo objects under the hood). Objects going to the `fleet-local` namespace are clusters and the others are applications.
+
+Use `make workloads-check` to do a dry-run. And use `make workloads-yes` to do a full run. These are separated as such due to how kapp manages stdin-based yaml that it feeds to K8S. In the example below, we see two cluster loaders and one application (which will install apps on top of the associated clusters when they become available). You can specify a kubecontext to use using the `LOCAL_CLUSTER_NAME` variable when calling `make`.
+```console
+> make workloads-yes LOCAL_CLUSTER_NAME=my-local-cluster
+
+===> Synchronizing Workloads with Fleet
+Switched to context "rancher-aws".
+Target cluster 'https://rancher.homelab.platformfeverdream.io/k8s/clusters/local' (nodes: ip-10-10-6-105)
+
+Changes
+
+Namespace      Name                Kind     Age  Op      Op st.  Wait to    Rs  Ri  
+fleet-default  essentials          GitRepo  -    create  -       reconcile  -   -  
+fleet-local    aws-cluster-loader  GitRepo  -    create  -       reconcile  -   -  
+^              dev-cluster-loader  GitRepo  -    create  -       reconcile  -   -  
+
+Op:      3 create, 0 delete, 0 update, 0 noop, 0 exists
+Wait to: 3 reconcile, 0 delete, 0 noop
+
+12:16:14PM: ---- applying 3 changes [0/3 done] ----
+12:16:14PM: create gitrepo/aws-cluster-loader (fleet.cattle.io/v1alpha1) namespace: fleet-local
+12:16:15PM: create gitrepo/dev-cluster-loader (fleet.cattle.io/v1alpha1) namespace: fleet-local
+12:16:15PM: create gitrepo/essentials (fleet.cattle.io/v1alpha1) namespace: fleet-default
+12:16:15PM: ---- waiting on 3 changes [0/3 done] ----
+12:16:16PM: ok: reconcile gitrepo/essentials (fleet.cattle.io/v1alpha1) namespace: fleet-default
+12:16:16PM: ok: reconcile gitrepo/aws-cluster-loader (fleet.cattle.io/v1alpha1) namespace: fleet-local
+12:16:16PM: ok: reconcile gitrepo/dev-cluster-loader (fleet.cattle.io/v1alpha1) namespace: fleet-local
+12:16:16PM: ---- applying complete [3/3 done] ----
+12:16:16PM: ---- waiting complete [3/3 done] ----
+
+Succeeded
+```
+
+
+## Manual HowTo
 Easy mode for deploying is using Carvel's `ytt` and `kapp` applications. `ytt` is both a yaml template and overlay tool as well as a yaml aggregator, we can use it to recursively grab all yaml files in a directory and feed over to `kubectl` or `kapp`. `kapp` does similar to kubectl but will create the objects in order, and allow you to aggregate/track the deployment with an `app` name. This aggregation allows for a higher level view for tracking changes to the objects we manually change.
 
 Assuming your kubeconfig context is set, you can kick this whole thing off with a simple command:
@@ -61,13 +97,13 @@ The term stack is pretty well-known and pretty informative as to what it is. It'
 At the base layer we have our Infrastructure which is Harvester as HCI. Rancher supports provisioning RKE2/K3S clusters directly into Harvester in a similar way that it supports AWS, Azure, vSphere, etc. Here we're using Harvester as part of this demo.
 
 ### RKE2
-At the platform layer we're going to be using RKE2 cluster instances. The default configuration here is for 3. One running on a low-core-count server called `harveter1` and two running on a high-core-count server called `harvester2`
+At the platform layer we're going to be using RKE2 cluster instances. The default configuration here is for 3. One running on a low-core-count server called `harvester1` and another in AWS-Gov.
 
 ### Architecture
 TODO: Drop in draw.io diagram
 
 ### Cluster Applications
-At the application layer we're installing services like `cert-manager` and `longhorn` as well as an application platform tool called `Epinio`. These are configured to install on specific clusters using label selectors to demonstrate various methods of managing automation to clusters at scale using `Fleet`.
+At the application layer we're installing services like `cert-manager` and `longhorn` in an essentials package. These are configured to install on specific clusters using label selectors to demonstrate various methods of managing automation to clusters at scale using `Fleet`.
 
 ## Fleet LCM
 What's really happening before your eyes is provisioning of a set of RKE2 clusters onto multiple Harvester instances as well as installation of the applications that run on top of it! This repo is a model of how a single git repository in production can manage many clusters and applications that run upon them at scale. Its structure is tailored to supporting this way of working. Because of naming conventions, directory structure and how it is presented, it can be very easy to onboard new platform engineers/operators in use of it.
