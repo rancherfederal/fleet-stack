@@ -10,7 +10,7 @@ OPT_ARGS=""
 # deploy vars
 WORKLOADS_KAPP_APP_NAME=workloads
 WORKLOADS_NAMESPACE=default
-LOCAL_CLUSTER_NAME=local
+LOCAL_CLUSTER_NAME=rancher-aws
 
 # derivables
 # RANCHER_URL := $(shell kubectl get ingress rancher -n cattle-system -o yaml | yq e .spec.rules[0].host -)
@@ -37,6 +37,12 @@ workloads-yes: check-tools
 	@printf "\n===> Synchronizing Workloads with Fleet\n";
 	@kubectx $(LOCAL_CLUSTER_NAME)
 	@ytt -f $(WORKLOAD_DIR) | kapp deploy -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE) -f - -y 
+	@kubectx -
+
+workloads-delete: check-tools
+	@printf "\n===> Deleting Workloads with Fleet\n";
+	@kubectx $(LOCAL_CLUSTER_NAME)
+	@kapp delete -a $(WORKLOADS_KAPP_APP_NAME) -n $(WORKLOADS_NAMESPACE)
 	@kubectx -
 
 status: check-tools
