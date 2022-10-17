@@ -3,7 +3,7 @@
 cloud_provider: amazonec2
 
 #! cluster details
-cluter_name: rke2-aws-cloud-omega
+cluster_name: rke2-aws-cloud-omega
 cluster_labels:
     environment: cloud
     cluster_name: omega

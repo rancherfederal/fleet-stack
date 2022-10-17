@@ -5,7 +5,7 @@ cloudCredentialSecretName: #@ data.values.cloud_secret_name
 cluster:
   annotations: #@ data.values.cluster_annotations
   labels: #@ data.values.cluster_labels
-  name: #@ data.values.cluter_name
+  name: #@ data.values.cluster_name
 
 kubernetesVersion: #@ data.values.k8s_version
 monitoring:
