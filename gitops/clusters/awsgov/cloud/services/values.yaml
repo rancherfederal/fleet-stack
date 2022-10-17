@@ -21,7 +21,7 @@ nodepools:
   taints: {}
   quantity: 1
   paused: false
-  name: rke2-aws-cloud-services-control-plane-a
+  name: control-plane-cloud-services-node-pool-a
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -61,7 +61,7 @@ nodepools:
   taints: {}
   quantity: 1
   paused: false
-  name: rke2-aws-cloud-services-control-plane-b
+  name: control-plane-cloud-services-node-pool-b
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -101,7 +101,7 @@ nodepools:
   taints: {}
   quantity: 1
   paused: false
-  name: rke2-aws-cloud-services-control-plane-c
+  name: control-plane-cloud-services-node-pool-c
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -141,7 +141,7 @@ nodepools:
   taints: {}
   quantity: 2
   paused: false
-  name: rke2-aws-cloud-services-worker-a
+  name: worker-cloud-services-node-pool-a
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -181,7 +181,7 @@ nodepools:
   taints: {}
   quantity: 2
   paused: false
-  name: rke2-aws-cloud-services-worker-b
+  name: worker-cloud-services-node-pool-b
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -221,7 +221,7 @@ nodepools:
   taints: {}
   quantity: 2
   paused: false
-  name: rke2-aws-cloud-services-worker-c
+  name: worker-cloud-services-node-pool-c
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
