@@ -21,7 +21,7 @@ nodepools:
   taints: {}
   quantity: 1
   paused: false
-  name: control-plane-a
+  name: control-plane-cloud-omega-pool-a
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -43,7 +43,7 @@ nodepools:
   - "443"
   privateAddressOnly: false
   requestSpotInstance: false
-  tags: owner,brian,KeepRunning,true,changed,true
+  tags: owner,brian,KeepRunning,true
   retries: 5
   rootSize: 20
   sshUser: ubuntu
@@ -61,7 +61,7 @@ nodepools:
   taints: {}
   quantity: 1
   paused: false
-  name: worker-a
+  name: worker-cloud-omega-pool-a
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -101,7 +101,7 @@ nodepools:
   taints: {}
   quantity: 1
   paused: false
-  name: worker-b
+  name: worker-cloud-omega-pool-b
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -141,7 +141,7 @@ nodepools:
   taints: {}
   quantity: 1
   paused: false
-  name: worker-c
+  name: worker-cloud-omega-pool-c
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
