@@ -21,7 +21,7 @@ nodepools:
   taints: {}
   quantity: 1
   paused: false
-  name: control-plane-a
+  name: rke2-aws-cloud-services-control-plane-a
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -61,7 +61,7 @@ nodepools:
   taints: {}
   quantity: 1
   paused: false
-  name: control-plane-b
+  name: rke2-aws-cloud-services-control-plane-b
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -101,7 +101,7 @@ nodepools:
   taints: {}
   quantity: 1
   paused: false
-  name: control-plane-c
+  name: rke2-aws-cloud-services-control-plane-c
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -139,9 +139,9 @@ nodepools:
   displayName: worker-a
   labels: {}
   taints: {}
-  quantity: 1
+  quantity: 2
   paused: false
-  name: worker-a
+  name: rke2-aws-cloud-services-worker-a
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -165,7 +165,7 @@ nodepools:
   requestSpotInstance: false
   tags: owner,brian,KeepRunning,true
   retries: 5
-  rootSize: 20
+  rootSize: 60
   sshUser: ubuntu
   volumeType: gp2
   vpcId: vpc-06a1e85ad08595b21
@@ -179,9 +179,9 @@ nodepools:
   displayName: worker-b
   labels: {}
   taints: {}
-  quantity: 1
+  quantity: 2
   paused: false
-  name: worker-b
+  name: rke2-aws-cloud-services-worker-b
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -205,7 +205,7 @@ nodepools:
   requestSpotInstance: false
   tags: owner,brian,KeepRunning,true
   retries: 5
-  rootSize: 20
+  rootSize: 60
   sshUser: ubuntu
   volumeType: gp2
   vpcId: vpc-06a1e85ad08595b21
@@ -219,9 +219,9 @@ nodepools:
   displayName: worker-c
   labels: {}
   taints: {}
-  quantity: 1
+  quantity: 2
   paused: false
-  name: worker-c
+  name: rke2-aws-cloud-services-worker-c
   ami: ami-0f1289f37e46c1eff
   deviceName: /dev/sda1
   encryptEbsVolume: false
@@ -245,7 +245,7 @@ nodepools:
   requestSpotInstance: false
   tags: owner,brian,KeepRunning,true
   retries: 5
-  rootSize: 20
+  rootSize: 60
   sshUser: ubuntu
   volumeType: gp2
   vpcId: vpc-06a1e85ad08595b21
